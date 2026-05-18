@@ -29,22 +29,6 @@ if ($basePath !== '' && $basePath !== '/' && strpos($uri, $basePath) === 0) {
 }
 
 $uri = $uri === '' ? '/' : $uri;
-$method = $_SERVER['REQUEST_METHOD'];
-
-$router->route($uri, $method);
 
 
-// $routes = [
-//     '/' => 'controllers/home.php',
-//     'listings' => 'controllers/listings/index.php',
-//     'listings/create' => 'controllers/create.php',
-//     '404' => 'controllers/error/404.php',
-
-// ];
-
-// $uri = $_SERVER['REQUEST_URI'];
-// if (array_key_exists($uri, $routes)) {
-//     require basePath($routes[$uri]);
-// } else {
-//     require basePath($routes['404']);
-// }
+$router->route($uri);

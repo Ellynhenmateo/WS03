@@ -84,19 +84,50 @@ class Router
      * @param string $method
      * return void
      */
-    public function route($uri, $method)
+    public function route($uri)
     {
+        $requestMethod = $_SERVER['REQUEST_METHOD'];
+
         foreach ($this->routes as $route) {
-            if ($route['uri'] === $uri && $route['method'] === $method) {
-                //Extract controller and control     method
-                $controller = 'App\\Controllers\\' . $route['controller'];
-                $controllerMethod = $route['controllerMethod'];
+            if ($route['method'] !== $requestMethod) {
+                continue;
+            }
 
+            $uriSegments = explode('/', trim($uri, '/'));
+            $routeSegments = explode('/', trim($route['uri'], '/'));
 
-                //Instantiate the controller class
+            if (count($uriSegments) !== count($routeSegments)) {
+                continue;
+            }
+
+            $match = true;
+
+            if (count($uriSegments) === count($routeSegments) && strtoupper($route['method']) === $requestMethod) {
+                $params = [];
+                
+                $match = true;
+
+                for ($i = 0; $i < count($routeSegments); $i++) {
+                    //if the uri do not match and there is no value between the {id}
+                    if ($routeSegments[$i] !== $uriSegments[$i] && ! preg_match('/\{(.+?)\}/', $routeSegments[$i])) {
+                        $match = false; 
+                        break;
+                    }
+
+                    if (preg_match('/\{(.+?)\}/', $routeSegments[$i], $matches)) {
+                        $params[$matches[1]] = $uriSegments[$i];
+                    }
+                }
+                if ($match) {
+                    //Extract controller and controller method
+                    $controller = "App\\Controllers\\{$route['controller']}";
+                    $controllerMethod = $route['controllerMethod'];
+
+                //instantiate controller class
                 $controllerInstance = new $controller();
-                $controllerInstance->$controllerMethod(); // Call the controller method 
+                $controllerInstance->$controllerMethod($params);
                 return;
+                }
             }
         }
 

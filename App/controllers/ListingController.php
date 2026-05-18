@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Error;
 use Framework\Database;
 use PDO;
 
@@ -31,17 +32,17 @@ class ListingController
         loadView('listings/create');
     }
 
-    public function show()
+    public function show($params)
     {
-        $id = $_GET['id'] ?? '';
+        $id = $params['id'] ?? '';
+
         $params = ['id' => $id];
 
-        $listing = $this->db->query("SELECT * FROM listings WHERE id = :id", $params)->fetch();
+        $listing = $this->db->query("SELECT * FROM listings WHERE id = :id", ['id' => $id])->fetch();
 
         if (!$listing) {
-            http_response_code(404);
-            loadView('error/404');
-            exit;
+            ErrorController::notFound('Listing not found');
+            return;
         }
 
         loadView('listings/show', ['listing' => $listing]);
