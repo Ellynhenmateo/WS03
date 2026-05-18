@@ -30,4 +30,20 @@ class ListingController
     {
         loadView('listings/create');
     }
+
+    public function show()
+    {
+        $id = $_GET['id'] ?? '';
+        $params = ['id' => $id];
+
+        $listing = $this->db->query("SELECT * FROM listings WHERE id = :id", $params)->fetch();
+
+        if (!$listing) {
+            http_response_code(404);
+            loadView('error/404');
+            exit;
+        }
+
+        loadView('listings/show', ['listing' => $listing]);
+    }
 }
