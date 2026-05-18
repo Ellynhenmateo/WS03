@@ -7,6 +7,8 @@
 // require(basePath($routes['404']));
 // }
 
+namespace Framework;
+
 class Router
 {
     private $routes = [];

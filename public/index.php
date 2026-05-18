@@ -3,9 +3,15 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+require __DIR__ . '/../vendor/autoload.php';
 require '../helpers.php';
-require basePath('Framework/Router.php');
-require basePath('Framework/database.php');
+
+use Framework\Router;
+use Framework\Database;
+
+// require '../helpers.php';
+// require basePath('Framework/Router.php');
+// require basePath('Framework/database.php');
 
 //$config = require basePath('config/db.php');
 

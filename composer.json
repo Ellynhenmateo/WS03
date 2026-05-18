@@ -1,0 +1,16 @@
+{
+    "name": "ellynhenmateo/ws03",
+    "description": "Job seeker application",
+    "authors": [
+        {
+            "name": "Elly Nhen Mateo",
+            "email": "ellynhenh.mateo@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
