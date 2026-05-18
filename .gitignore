@@ -1,6 +1,7 @@
 /vendor
 /node_modules
 /config/db.php
-.env
-.vscode
-thumbs.db
+/.env
+/vscode
+Thumbs.db
+Desktop.ini

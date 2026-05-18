@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,21 +5,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/custom.css" />
+    <?php $assetPath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\'); ?>
+    <link rel="stylesheet" href="<?= $assetPath ?>/css/style.css" />
+    <link rel="stylesheet" href="<?= $assetPath ?>/css/custom.css" />
     <title>Prosple</title>
 </head>
-
-<body>
-    <section>
-        <div class="container mx-auto p-4 mt-4">
-            <div class="text-center text-3xl mb-4 font-bold border border-gray-300 p-3">404 Error</div>
-            <p class="text-center text-2xl mb-4">
-                This page does not exist
-            </p>
-        </div>
-    </section>
-</body>
-
-
-</html>

@@ -25,17 +25,17 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --color-header:       #011638;   /* Header at navigation bar */
-  --color-accent:       #498AD5;   /* "Post a Job" button at mga highlight */
-  --color-page-bg:      #FAFAFA;   /* Background ng buong page */
-  --color-card-bg:      #FAFAFA;   /* Background ng mga card/box */
-  --color-heading:      #FFFFFF;   /* Kulay ng mga title at heading */
-  --color-body-text:    #000000;   /* Regular na body text */
-  --color-link:         #FFFFFF;   /* Mga clickable na links */
-  --color-tag-bg:       #498AD5;   /* Background ng mga tag/badge */
-  --color-tag-text:     #FAFAFA;   /* Text ng mga tag/badge */
-  --color-footer:       #000000;   /* Footer background */
-  --showcase-overlay:   rgba(0, 0, 0, 0.5); /* Hero banner overlay
+  --color-header:       #0F172A;   /* Header at navigation bar */
+  --color-accent:       #0EA5E9;   /* "Post a Job" button at mga highlight */
+  --color-page-bg:      #F1F5F9;   /* Background ng buong page */
+  --color-card-bg:      #FFFFFF;   /* Background ng mga card/box */
+  --color-heading:      #1E293B;   /* Kulay ng mga title at heading */
+  --color-body-text:    #334155;   /* Regular na body text */
+  --color-link:         #0EA5E9;   /* Mga clickable na links */
+  --color-tag-bg:       #E0F2FE;   /* Background ng mga tag/badge */
+  --color-tag-text:     #0369A1;   /* Text ng mga tag/badge */
+  --color-footer:       #0B1120;   /* Footer background */
+  --showcase-overlay:   rgba(45, 25, 20, 0.80)); /* Hero banner overlay
                                                0.0 = transparent
                                                0.9 = halos itim */
 }
@@ -104,7 +104,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: var(--color-link) !important;
+  color: var(--color-link);
 }
 
 header {
