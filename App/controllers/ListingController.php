@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Error;
 use Framework\Database;
+use Framework\Validation;
 use PDO;
 
 
@@ -20,6 +21,7 @@ class ListingController
 
     public function index()
     {
+        \inspectAndDie(Validation::match('test1', 'test'));
 
         $listings = $this->db->query("SELECT * FROM listings ")->fetchAll(PDO::FETCH_OBJ);
 

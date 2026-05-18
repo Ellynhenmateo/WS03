@@ -58,3 +58,10 @@ function formatSalary($salary)
 
     return '₱' . number_format((float)$cleanSalary);
 }
+
+function inspectAndDie($value)
+{
+    echo '<pre>';
+    die(var_dump($value));
+    echo '</pre>';
+}
