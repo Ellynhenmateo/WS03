@@ -25,4 +25,9 @@ class ListingController
 
         loadView('listings/index', ['listings' => $listings]);
     }
+
+    public function create()
+    {
+        loadView('listings/create');
+    }
 }
