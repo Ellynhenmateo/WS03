@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Framework\Database;
 use Framework\Validation;
+use Framework\Session;
 
 class UserController
 {
@@ -109,8 +110,20 @@ class UserController
         );
     
 
-        $_SESSION['success_message'] = 'Registration successful. You can now log in.';
-        redirect('/auth/login');
+        $_SESSION['success_message'] = 'Registration successful. You are now logged in.';
+
+                //get new user id
+     $userId = $this->db->lastInsertId();
+     
+     Session::set('user', [
+        'id' => $userId,
+        'name' => $name,
+        'email' => $email,
+        'city' => $city,
+        'state' => $state
+     ]);
+        redirect('/listings');
+    
     }
 
     /**Show login Page
@@ -123,5 +136,12 @@ class UserController
     public function login()
     {
         loadView('users/login');
+    }
+
+    public function logout()
+    {
+        Session::clearAll();
+
+        redirect('/');
     }
 }

@@ -54,4 +54,14 @@ class Database
 			throw new Exception("Query failed: " . $e->getMessage());
 		}
 	}
+
+	/**
+	 * Get the ID of the last inserted row.
+	 *
+	 * @return string
+	 */
+	public function lastInsertId()
+	{
+		return $this->conn->lastInsertId();
+	}
 }
