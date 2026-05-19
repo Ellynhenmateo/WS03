@@ -5,12 +5,7 @@
 <!-- Job Listings -->
 <section>
     <div class="container mx-auto p-4 mt-4">
-        <?php if (isset($_SESSION['success_message'])): ?>
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-            <?= $_SESSION['success_message'] ?>
-        </div>
-        <?php unset($_SESSION['success_message']); ?>
-        <?php endif; ?>
+        <?= LoadPartial('message') ?>
         <div class=" text-center text-3xl mb-4 font-bold border border-gray-300 p-3">All Jobs</div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <?php foreach ($listings as $listing): ?>
