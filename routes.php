@@ -3,6 +3,7 @@
 /** @var mixed $router */
 
 $router->get('/', 'HomeController@index');
+$router->get('/job-match', 'JobMatchController@index');
 $router->get('/listings', 'ListingController@index');
 $router->get('/listings/create', 'ListingController@create', ['auth']);
 $router->get('/listings/{id}/edit', 'ListingController@edit', ['auth']);

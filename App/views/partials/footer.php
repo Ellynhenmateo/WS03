@@ -22,6 +22,7 @@ use Framework\Session;
                 <ul class="space-y-2 text-sm">
                     <li><a href="/" class="text-gray-300 hover:text-white hover:underline transition duration-200">Home</a></li>
                     <li><a href="/listings" class="text-gray-300 hover:text-white hover:underline transition duration-200">Browse Jobs</a></li>
+                    <li><a href="/job-match" class="text-gray-300 hover:text-white hover:underline transition duration-200">Job Match</a></li>
                     <?php if (Session::has('user')) : ?>
                     <li><a href="/listings/create" class="text-gray-300 hover:text-white hover:underline transition duration-200">Post a Job</a></li>
                     <?php else : ?>

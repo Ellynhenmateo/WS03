@@ -14,6 +14,7 @@ $firstName = trim(explode(' ', $user['name'] ?? 'Job Seeker')[0]);
         <nav class="flex items-center gap-4">
             <?php if (Session::has('user')) : ?>
             <span class="text-white">Welcome, <?= htmlspecialchars($firstName) ?></span>
+            <a href="/job-match" class="text-white hover:underline">Job Match</a>
 
             <form method="POST" action="/auth/logout" style="display:contents;">
                 <button type="submit" class="text-white hover:underline cursor-pointer">
@@ -27,6 +28,7 @@ $firstName = trim(explode(' ', $user['name'] ?? 'Job Seeker')[0]);
             </a>
             <?php else: ?>
             <span class="text-white">Welcome, Future Hire</span>
+            <a href="/job-match" class="text-white hover:underline">Job Match</a>
             <a href="/auth/login" class="text-white hover:underline">Login</a>
             <a href="/auth/register" class="text-white hover:underline">Register</a>
             <?php endif; ?>
