@@ -183,27 +183,31 @@ class ListingController
 
         if (!empty($errors)) {
             $updateListingData['id'] = $id;
-            loadView('listings/edit', ['errors' => $errors, 'listing' => $updateListingData]);
-            return;
-        }
+            loadView('listings/edit', [
+                'listing' => $updateListingData,
+                'errors' => $errors
+            ]);
+            exit;
+        } else {
+            $fields = [];
 
-        $fields = [];
+            foreach ($updateListingData as $field => $value) {
+                if ($value === '') {
+                    $updateListingData[$field] = null;
+                }
 
-        foreach ($updateListingData as $field => $value) {
-            if ($value === '') {
-                $updateListingData[$field] = null;
+                $fields[] = "{$field} = :{$field}";
             }
 
-            $fields[] = "{$field} = :{$field}";
+            $updateListingData['id'] = $id;
+            $fields = implode(', ', $fields);
+
+            $query = "UPDATE listings SET {$fields} WHERE id = :id";
+            $this->db->query($query, $updateListingData);
+
+            $_SESSION['success_message'] = 'Listing updated successfully';
+
+            redirect("/listings/{$id}");
         }
-
-   
-        $updateListingData['id'] = $id;
-        $fields = implode(', ', $fields);
-
-        $query = "UPDATE listings SET {$fields} WHERE id = :id";
-        $this->db->query($query, $updateListingData);
-
-        redirect("/listings/{$id}");
     }
 }
