@@ -1,7 +1,7 @@
 /* ============================================================
    JOBSEEKER — CUSTOM STYLESHEET
    Pangalan ng Student: Mateo, Elly Nhen H.
-   Theme Name:          ______________________________
+   Theme Name: Job Portal for IT related jobs
    ============================================================ */
 
 /* --- Google Fonts Import (optional) ---
@@ -349,3 +349,131 @@ footer h6 {
 /* Kulay ng success badge */
 /* .bg-green-100 { background-color: #d1fae5 !important; }
    .text-green-800 { color: #065f46 !important; } */
+
+.bottom-banner {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.bottom-banner-card {
+  background: #FCE7DF;
+  border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+  border: 1px solid #F7C6B7;
+  border-bottom: 0;
+  color: var(--color-body-text);
+  box-shadow: none;
+}
+
+.bottom-banner-card h2 {
+  color: var(--color-heading) !important;
+}
+
+.bottom-banner-card p {
+  color: var(--color-body-text);
+}
+
+.bottom-banner-action {
+  border: 1px solid var(--color-accent);
+  color: var(--color-tag-text);
+  background: transparent;
+  font-weight: 700;
+}
+
+.bottom-banner-action:hover {
+  background: #FAD8CD;
+}
+
+.site-footer {
+  margin-top: 0;
+  padding-top: 1rem;
+  padding-bottom: 1.25rem;
+}
+
+.footer-quick-links {
+  text-align: left;
+  justify-self: start;
+}
+
+.site-footer-inner {
+  padding-left: 2.5rem;
+  padding-right: 3rem;
+}
+
+.site-footer-grid {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.8fr) minmax(320px, 1.2fr) minmax(260px, 0.9fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.footer-brand {
+  max-width: 620px;
+  justify-self: center;
+  text-align: left;
+}
+
+.footer-brand h2 {
+  text-align: center;
+}
+
+.footer-brand p {
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.footer-connect {
+  text-align: center;
+  justify-self: end;
+  padding-right: 1rem;
+}
+
+.footer-connect .flex {
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .bottom-banner {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .site-footer {
+    padding-top: 1rem;
+  }
+
+  .site-footer-inner {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .site-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-connect {
+    justify-self: start;
+    text-align: left;
+    padding-right: 0;
+  }
+
+  .footer-brand {
+    justify-self: start;
+    padding-right: 0;
+  }
+
+  .footer-brand h2 {
+    text-align: left;
+  }
+
+  .footer-brand p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .footer-connect .flex {
+    justify-content: flex-start;
+  }
+}

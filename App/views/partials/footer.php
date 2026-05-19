@@ -4,20 +4,12 @@ use Framework\Session;
 
 ?>
 
-<footer class="bg-indigo-900 text-white mt-8">
-    <div class="container mx-auto py-10" style="padding-left: 2rem; padding-right: 2rem;">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            <!-- Brand -->
-            <div>
-                <h2 class="text-2xl font-semibold text-white mb-2">Jobseeker</h2>
-                <p class="text-gray-300 text-sm leading-relaxed">
-                    Connecting talented professionals with their dream careers. Find opportunities that match your skills and ambitions.
-                </p>
-            </div>
+<footer class="site-footer bg-indigo-900 text-white">
+    <div class="site-footer-inner container mx-auto">
+        <div class="site-footer-grid">
 
             <!-- Quick Links -->
-            <div>
+            <div class="footer-quick-links">
                 <h3 class="text-lg font-semibold text-white mb-3">Quick Links</h3>
                 <ul class="space-y-2 text-sm">
                     <li><a href="/" class="text-gray-300 hover:text-white hover:underline transition duration-200">Home</a></li>
@@ -29,12 +21,21 @@ use Framework\Session;
                     <li><a href="/auth/login" class="text-gray-300 hover:text-white hover:underline transition duration-200">Login</a></li>
                     <li><a href="/auth/register" class="text-gray-300 hover:text-white hover:underline transition duration-200">Register</a></li>
                     <?php endif; ?>
+                    <li><a href="/blog/lab1.php" class="text-gray-300 hover:text-white hover:underline transition duration-200">Blog Project</a></li>
                 </ul>
             </div>
 
+            <!-- Brand -->
+            <div class="footer-brand">
+                <h2 class="text-2xl font-semibold text-white mb-2">Jobseeker</h2>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    A focused IT job board for finding developer, support, analyst, and tech-focused opportunities that match your skills.
+                </p>
+            </div>
+
             <!-- Contact / Social -->
-            <div>
-                <h3 class="text-lg font-semibold text-white mb-3">Connect With Us</h3>
+            <div class="footer-connect">
+                <h3 class="text-lg font-semibold text-white mb-3">Stay Connected</h3>
                 <div class="flex space-x-4 mb-4">
                     <a href="#" class="text-gray-300 hover:text-white transition duration-200 text-xl">
                         <i class="fab fa-facebook"></i>
