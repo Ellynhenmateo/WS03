@@ -33,6 +33,7 @@
   --color-tag-bg:     #FCE7DF;   /* Background ng mga tag/badge */
   --color-tag-text:   #C0440E;   /* Text ng mga tag/badge */
   --color-footer:     #1A0D27;   /* Footer background */
+  --showcase-overlay: rgba(45, 27, 61, 0.72);
 }
 
 
@@ -100,6 +101,10 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: var(--color-link);
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 header {

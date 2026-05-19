@@ -110,7 +110,7 @@ class UserController
         );
 
 
-        $_SESSION['success_message'] = 'Registration successful. You are now logged in.';
+        Session::setFlash('success_message', 'Registration successful. You are now logged in.');
 
         //get new user id
         $userId = $this->db->lastInsertId();

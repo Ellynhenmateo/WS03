@@ -7,7 +7,7 @@
     <div class="container mx-auto p-4 mt-4">
         <?= LoadPartial('message') ?>
         <div class=" text-center text-3xl mb-4 font-bold border border-gray-300 p-3">
-            <?php if(isset($keywords)) :?> Search Results for: <?= htmlspecialchars($keywords) ?>
+            <?php if(isset($keywords)) :?> Search Results for: <?= escape($keywords) ?>
                 <?php else :?>
 All Jobs
         <?php endif ;?>
@@ -18,22 +18,22 @@ All Jobs
             <div class="rounded-lg shadow-md text-slate-900">
                 <div class="p-4">
                     <h2 class="text-xl font-semibold text-black">
-                        <?= $listing->title ?>
+                        <?= escape($listing->title) ?>
                     </h2>
-                    <p class="text-gray-700 text-lg mt-2"><?= $listing->description ?></p>
+                    <p class="text-gray-700 text-lg mt-2"><?= escape($listing->description) ?></p>
                     <ul class="my-4 bg-gray-100 p-4 rounded">
                         <li class="mb-2"><strong>Salary:</strong> <?= formatSalary($listing->salary) ?></li>
                         <li class="mb-2">
-                            <strong>Location:</strong> <?= $listing->city ?>, <?= $listing->state ?>
+                            <strong>Location:</strong> <?= escape($listing->city) ?>, <?= escape($listing->state) ?>
                             <span class="text-xs bg-blue-500 text-white rounded-full px-2 py-1 ml-2">Local</span>
                         </li>
                         <?php if (!empty($listing->tags)) : ?>
                         <li class="mb-2">
-                            <strong>Tags:</strong> <span><?= $listing->tags ?></span>
+                            <strong>Tags:</strong> <span><?= escape($listing->tags) ?></span>
                         </li>
                         <?php endif; ?>
                     </ul>
-                    <a href="/listings/<?= $listing->id ?>"
+                    <a href="/listings/<?= escape($listing->id) ?>"
                         class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
                         Details
                     </a>

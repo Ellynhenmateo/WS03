@@ -53,6 +53,11 @@ function inspect($value)
     echo '</pre>';
 }
 
+function escape($value)
+{
+    return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
+}
+
 function formatSalary($salary)
 {
     $cleanSalary = str_replace([',', ' ', '₱'], '', $salary);
@@ -84,5 +89,5 @@ function sanitize($dirty) {
  */ 
 function redirect($url){
     header("Location: {$url}");
-
+    exit;
 }

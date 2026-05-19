@@ -13,7 +13,7 @@
 
     <?php if (Framework\Authorization::isOwner($listing->user_id)) : ?>
     <div class="flex items-center gap-3 ml-4" style="gap: 10px;">
-        <a href="/listings/<?= $listing->id ?>/edit"
+        <a href="/listings/<?= escape($listing->id) ?>/edit"
             style="min-width: 90px; text-align: center;"
             class="inline-block px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded">Edit</a>
 
@@ -29,20 +29,20 @@
     <?php endif; ?>
 </div>
         <div class="p-4">
-            <h2 class="text-xl font-semibold"><?= $listing->title ?>
+            <h2 class="text-xl font-semibold"><?= escape($listing->title) ?>
             </h2>
             <p class="text-gray-700 text-lg mt-2">
-                <?= $listing->description ?>
+                <?= escape($listing->description) ?>
             </p>
             <ul class="my-4 bg-gray-100 p-4">
                 <li class="mb-2"><strong>Salary:</strong> <?= formatSalary($listing->salary) ?></li>
                 <li class="mb-2">
-                    <strong>Location:</strong> <?= $listing->city ?>, <?= $listing->state ?>
+                    <strong>Location:</strong> <?= escape($listing->city) ?>, <?= escape($listing->state) ?>
                     <span class="text-xs bg-blue-500 text-white rounded-full px-2 py-1 ml-2">Local</span>
                 </li>
                 <?php if (!empty($listing->tags)) : ?>
                 <li class="mb-2">
-                    <strong>Tags:</strong> <span><?= $listing->tags ?></span>
+                    <strong>Tags:</strong> <span><?= escape($listing->tags) ?></span>
                 </li>
                 <?php endif; ?>
             </ul>
@@ -57,16 +57,16 @@
             Job Requirements
         </h3>
         <p>
-            <?= $listing->requirements ?? 'No requirements listed.' ?>
+            <?= escape($listing->requirements ?? 'No requirements listed.') ?>
         </p>
         <h3 class="text-lg font-semibold mt-4 mb-2 text-blue-500">Benefits</h3>
-        <p><?= $listing->benefits ?? 'No benefits listed.' ?></p>
+        <p><?= escape($listing->benefits ?? 'No benefits listed.') ?></p>
     </div>
     <p class="my-5">
         Put "Job Application" as the subject of your email and attach your
         resume.
     </p>
-    <a href="mailto:<?= $listing->email ?>"
+    <a href="mailto:<?= escape($listing->email) ?>"
         class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium cursor-pointer text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
         Apply Now
     </a>
