@@ -11,9 +11,7 @@
    Halimbawa:
    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 */
-@import url('https://fonts.googleapis.com/css2?family=Patua+One&family=Quicksand:wght@300..700&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Quicksand:wght@300..700&display=swap');
 
 
 /* ----------------------------------------------------------------
@@ -25,19 +23,16 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --color-header:       #0F172A;   /* Header at navigation bar */
-  --color-accent:       #0EA5E9;   /* "Post a Job" button at mga highlight */
-  --color-page-bg:      #F1F5F9;   /* Background ng buong page */
-  --color-card-bg:      #FFFFFF;   /* Background ng mga card/box */
-  --color-heading:      #1E293B;   /* Kulay ng mga title at heading */
-  --color-body-text:    #334155;   /* Regular na body text */
-  --color-link:         #0EA5E9;   /* Mga clickable na links */
-  --color-tag-bg:       #E0F2FE;   /* Background ng mga tag/badge */
-  --color-tag-text:     #0369A1;   /* Text ng mga tag/badge */
-  --color-footer:       #0B1120;   /* Footer background */
-  --showcase-overlay:   rgba(45, 25, 20, 0.80)); /* Hero banner overlay
-                                               0.0 = transparent
-                                               0.9 = halos itim */
+  --color-header:     #2D1B3D;   /* Header at navigation bar */
+  --color-accent:     #F4845F;   /* "Post a Job" button at mga highlight */
+  --color-page-bg:    #FAF5FF;   /* Background ng buong page */
+  --color-card-bg:    #FFFFFF;   /* Background ng mga card/box */
+  --color-heading:    #2D1B3D;   /* Kulay ng mga title at heading */
+  --color-body-text:  #4A3B5C;   /* Regular na body text */
+  --color-link:       #F4845F;   /* Mga clickable na links */
+  --color-tag-bg:     #FCE7DF;   /* Background ng mga tag/badge */
+  --color-tag-text:   #C0440E;   /* Text ng mga tag/badge */
+  --color-footer:     #1A0D27;   /* Footer background */
 }
 
 
@@ -56,7 +51,7 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --font-heading: "Patua One", serif;    /* Para sa mga title at heading */
+--font-heading: "Outfit", sans-serif;  /* Para sa mga title at heading */
   --font-body:    "Quicksand", sans-serif;  /* Para sa regular na text */
 }
 
@@ -174,6 +169,15 @@ footer,
   background-color: var(--color-page-bg) !important;
 }
 
+
+footer h1, 
+footer h2, 
+footer h3, 
+footer h4, 
+footer h5, 
+footer h6 {
+  color: #FFFFFF !important;
+}
 
 /* ----------------------------------------------------------------
    ADVANCED ZONE — Para sa gustong mag-explore pa!
