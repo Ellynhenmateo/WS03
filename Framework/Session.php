@@ -84,5 +84,29 @@ public static function get($key, $default = null){
         session_unset();
         session_destroy();     
     }
+
+    /**
+     * Set a flash message
+     * @param string $key
+     * @param string $message
+     * @return void
+     */
+
+    public static function setFlash($key, $message){
+        self::set('flash_' . $key, $message);
+        }
+        
+    /** 
+     * get and clear a flash message
+     * @param string $key  
+     * @return mixed $default
+     * @return void
+     */
+  
+    public static function getFlash($key, $default = null){
+        $message = self::get('flash_' . $key, $default);
+        self::clear('flash_' . $key);
+        return $message;
+    }
 }
     
