@@ -95,35 +95,34 @@ class UserController
         }
 
         $params = [
-           'name' => $name,
+            'name' => $name,
             'email' => $email,
             'city' => $city,
             'state' => $state,
             'password' => password_hash($password, PASSWORD_DEFAULT)
         ];
 
-    
+
 
         $this->db->query(
             "INSERT INTO users (name, email, city, state, password) VALUES (:name, :email, :city, :state, :password)",
             $params
         );
-    
+
 
         $_SESSION['success_message'] = 'Registration successful. You are now logged in.';
 
-                //get new user id
-     $userId = $this->db->lastInsertId();
-     
-     Session::set('user', [
-        'id' => $userId,
-        'name' => $name,
-        'email' => $email,
-        'city' => $city,
-        'state' => $state
-     ]);
-        redirect('/listings');
-    
+        //get new user id
+        $userId = $this->db->lastInsertId();
+
+        Session::set('user', [
+            'id' => $userId,
+            'name' => $name,
+            'email' => $email,
+            'city' => $city,
+            'state' => $state
+        ]);
+        redirect('/');
     }
 
     /**Show login Page
@@ -141,6 +140,67 @@ class UserController
     public function logout()
     {
         Session::clearAll();
+        redirect('/');
+    }
+
+    /** Authenticate a user with email and password 
+     * @return void
+     */
+
+    /** Authenticate a user with email and password 
+     * @return void
+     */
+    public function authenticate()
+    {
+        $email = $_POST['email'] ?? '';
+        $password = $_POST['password'] ?? '';
+
+        $errors = [];
+
+        // Validation
+        if (!Validation::email($email)) {
+            $errors[] = "Please enter a valid email address.";
+        }
+
+        if (!Validation::string($password, 6, 50)) {
+            $errors[] = "Password must be at least 6 characters long.";
+        }
+
+        if (!empty($errors)) {
+            Session::clear('user');
+            loadView('users/login', [
+                'errors' => $errors,
+                'user' => ['email' => $email]
+            ]);
+            exit;
+        }
+
+        // Check if user exists and password is correct
+        $params = [
+            'email' => $email
+        ];
+
+        $user = $this->db->query("SELECT * FROM users WHERE email = :email", $params)->fetch();
+
+        // INAYOS: Binasa si $user['password'] bilang object property ($user->password)
+        if (!$user || !password_verify($password, $user->password)) {
+            Session::clear('user');
+            $errors[] = "Invalid email or password.";
+            loadView('users/login', [
+                'errors' => $errors,
+                'user' => ['email' => $email]
+            ]);
+            exit;
+        }
+
+        // Login successful - Nanatiling Object access (->) para swak sa framework
+        Session::set('user', [
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email,
+            'city' => $user->city,
+            'state' => $user->state
+        ]);
 
         redirect('/');
     }
