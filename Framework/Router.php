@@ -88,6 +88,12 @@ class Router
     {
         $requestMethod = $_SERVER['REQUEST_METHOD'];
 
+        //Check for  _method input
+        if ($requestMethod === 'POST' && isset($_POST['_method'])) {
+            //override request method with _method value
+            $requestMethod = strtoupper($_POST['_method']);
+        }
+
         foreach ($this->routes as $route) {
             if ($route['method'] !== $requestMethod) {
                 continue;
@@ -104,13 +110,13 @@ class Router
 
             if (count($uriSegments) === count($routeSegments) && strtoupper($route['method']) === $requestMethod) {
                 $params = [];
-                
+
                 $match = true;
 
                 for ($i = 0; $i < count($routeSegments); $i++) {
                     //if the uri do not match and there is no value between the {id}
                     if ($routeSegments[$i] !== $uriSegments[$i] && ! preg_match('/\{(.+?)\}/', $routeSegments[$i])) {
-                        $match = false; 
+                        $match = false;
                         break;
                     }
 
@@ -123,10 +129,10 @@ class Router
                     $controller = "App\\Controllers\\{$route['controller']}";
                     $controllerMethod = $route['controllerMethod'];
 
-                //instantiate controller class
-                $controllerInstance = new $controller();
-                $controllerInstance->$controllerMethod($params);
-                return;
+                    //instantiate controller class
+                    $controllerInstance = new $controller();
+                    $controllerInstance->$controllerMethod($params);
+                    return;
                 }
             }
         }
